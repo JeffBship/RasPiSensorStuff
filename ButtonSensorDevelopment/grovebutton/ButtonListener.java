@@ -19,6 +19,13 @@ public class ButtonListener implements GroveDigitalInListener
      * exec   responsible for making intermittent reads of the button sensor
      */
     private final ScheduledExecutorService exec = Executors.newSingleThreadScheduledExecutor();
+    
+    /**
+     * Provides a method to stop the listener.  
+     */
+    public void stopListener(){
+        exec.shutdown();
+    }
     /**
      * button   the object that an instance of this class is listening to
      */
@@ -46,26 +53,33 @@ public class ButtonListener implements GroveDigitalInListener
      * @param oldValue    the old status of the button
      * @param newvalue    the new (and current) status of the button
      */
+    // Need to adjust the visibility for these before final release
+    public long eventTime,pressNew,releaseNew,pressOld,releaseOld = Long.MAX_VALUE;
+        
+    public void reset(){
+        eventTime  = Long.MAX_VALUE;
+        pressNew   = 0; 
+        releaseNew = 0; 
+        pressOld   = 0; 
+        releaseOld = 0; 
+    }
+    
+    
     @Override
     public void onChange(boolean oldValue, boolean newValue) {
-        long currentTime = System.currentTimeMillis();  
-        long lastPress = button.getLastPressTime();
-        long lastRelease = button.getLastReleaseTime();
-        
-        if (oldValue){ //if button was just released
-            if (currentTime - lastPress > 5000){ //5 second press ends it
-                exec.shutdown();
-            }
-            else if (currentTime - lastPress > button.LONG_PRESS_INTERVAL){
-                System.out.println("Long Press Detected");
-            }else if (currentTime - lastRelease < button.DOUBLE_PRESS_INTERVAL){
-                System.out.println("Double Press Detected");
-            }else{
-                System.out.println("Single Press Detected");
-            }
-            button.setLastReleaseTime(currentTime);
-        }else{//if button just pressed down
-            button.setLastPressTime(currentTime);
-        }         
+        //In the listener, just update the time values when there is a press or release. 
+        eventTime = System.currentTimeMillis();  ;
+        if (oldValue){  //if button was just released
+            button.setLastReleaseTime(eventTime);
+            releaseOld = releaseNew;
+            releaseNew = eventTime;
+        }else{          //if button was just pressed down
+            button.setLastPressTime(eventTime);
+            pressOld   = pressNew;
+            pressNew   = eventTime;
+            releaseOld = releaseNew;
+            releaseNew = 0;
+            
+        };;     
     }
 }

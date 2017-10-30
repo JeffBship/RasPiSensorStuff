@@ -14,18 +14,21 @@ public class GroveButton extends GroveDigitalIn
      * the time in milliseconds of the last time the button was pressed down
      */
     private long lastPressTime;  
+    
     /**
      * the time in milliseconds of the last time the button was released
      */
     private long lastReleaseTime;
+    
     /**
      * the length of time in milleseconds to define a "long press"
      */
-    public final int LONG_PRESS_INTERVAL = 1000;   //milliseconds
+    public static final int LONG_PRESS_INTERVAL = 2000;   //milliseconds
+    
     /**
      * the length of time in milliseconds separating two consecutive button presses that constitutes a "double press"
      */
-    public final int DOUBLE_PRESS_INTERVAL = 1000;
+    public static final int DOUBLE_PRESS_INTERVAL = 500;
     
     /**
      * @param grovePi  the GrovePi device to which this GroveButton sensor is plugged into
