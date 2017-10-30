@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=grovePi\ pin
+comment0.target=ButtonListener(org.iot.raspberry.grovepi.GrovePi,\ int)
+comment0.text=\n\ instantiates\ a\ new\ ButtonListener\ object\ and\ the\ GroveButton\ object\ it\ listens\ to\n\ \n\ @param\ grovePi\ \ \ \n\ @param\ pin\ \ \ \ number\ of\ the\ port\ that\ button\ is\ plugged\ into\n
+comment1.params=oldValue\ newValue
+comment1.target=void\ onChange(boolean,\ boolean)
+comment1.text=\n\ invoked\ when\ ScheduledExecutorService\ detects\ a\ change\ in\ button\ status\n\ determines\ the\ type\ of\ press\ (single,\ double,\ long)\ then\ invokes\ the\ \n\ method\ associated\ with\ that\ type\ of\ button\ press\n\ \n\ @param\ oldValue\ \ \ \ the\ old\ status\ of\ the\ button\n\ @param\ newvalue\ \ \ \ the\ new\ (and\ current)\ status\ of\ the\ button\n
+numComments=2

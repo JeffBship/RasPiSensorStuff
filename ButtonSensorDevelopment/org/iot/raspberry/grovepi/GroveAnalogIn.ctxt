@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=grovePi\ pin\ bufferSize
+comment0.target=GroveAnalogIn(GrovePi,\ int,\ int)
+comment1.params=
+comment1.target=void\ run()
+comment2.params=
+comment2.target=byte[]\ get()
+comment3.params=listener
+comment3.target=void\ setListener(GroveAnalogInListener)
+numComments=4

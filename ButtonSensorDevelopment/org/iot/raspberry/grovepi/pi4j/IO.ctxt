@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=device
+comment0.target=IO(com.pi4j.io.i2c.I2CDevice)
+comment1.params=command
+comment1.target=void\ write(int[])
+comment2.params=
+comment2.target=int\ read()
+comment3.params=buffer
+comment3.target=byte[]\ read(byte[])
+numComments=4

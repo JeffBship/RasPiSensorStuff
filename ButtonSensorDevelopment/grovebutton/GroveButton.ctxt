@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.params=grovePi\ pin
+comment0.target=GroveButton(org.iot.raspberry.grovepi.GrovePi,\ int)
+comment0.text=\n\ @param\ grovePi\ \ the\ GrovePi\ device\ to\ which\ this\ GroveButton\ sensor\ is\ plugged\ into\n\ @param\ pin\ \ \ the\ port\ number\ this\ GroveButton\ sensor\ is\ plugged\ into\n
+comment1.params=
+comment1.target=long\ getLastPressTime()
+comment2.params=time
+comment2.target=void\ setLastPressTime(long)
+comment3.params=
+comment3.target=long\ getLastReleaseTime()
+comment4.params=time
+comment4.target=void\ setLastReleaseTime(long)
+numComments=5
